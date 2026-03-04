@@ -50,7 +50,7 @@ values
 ('Aaron', 'aaron@email.com', '1234', 5000);
 
 <p align="center">
-  <img src="ipgAdmin_usuario.png=@pgAdmin_usuario,0" width="600">
+  <img src="image/pgAdmin_usuario.png" width="600">
 </p>
 
 
@@ -60,7 +60,7 @@ values
 ('Dolar', 'USD');
 
 <p align="center">
-  <img src="ipgAdmin_usuario.png=@pgAdmin_usuario,0" width="600">
+  <img src="image/pgAdmin_moneda.png" width="600">
 </p>
 
 
@@ -87,8 +87,11 @@ order by random() limit 1
 ) u2;
 
 <p align="center">
-  <img src="pgAdmin_moneda.png=@pgAdmin_moneda,0" width="600">
+  <img src="image/pg_Admin_transferencias_15.png" width="600">
 </p>
+
+## 1° Consulta para obtener el nombre de la moneda elegida por un usuario específico.
+
 
 select u.nombre, m.currency_name
 from transaccion t
