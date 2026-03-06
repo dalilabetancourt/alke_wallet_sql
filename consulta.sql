@@ -54,6 +54,57 @@ values
 ('Peso Chileno', 'CLP'),
 ('Dolar', 'USD');
 
+--1° Consulta para obtener el nombre de la moneda elegida por un usuario específico.
+
+select u.nombre, m.currency_name
+from transaccion t
+join usuario u on t.sender_user_id = u.user_id
+join moneda m on t.currency_id = m.currency_id
+where u.user_id = 1;
+
+--2° Consulta para obtener todas las transacciones registradas
+
+select 
+t.transaction_id,
+u1.nombre as remitente,
+u2.nombre as receptor,
+m.currency_name as moneda,
+t.importe,
+t.transaction_date
+from transaccion t
+join usuario u1 on t.sender_user_id = u1.user_id
+join usuario u2 on t.receiver_user_id = u2.user_id
+join moneda m on t.currency_id = m.currency_id;
+
+---3° Consulta para obtener todas las transacciones realizadas por un usuario específico
+
+select
+t.transaction_id,
+u1.nombre as remitente,
+u2.nombre as receptor,
+m.currency_name as moneda,
+t.importe,
+t.transaction_date
+from transaccion t
+join usuario u1 on t.sender_user_id = u1.user_id
+join usuario u2 on t.receiver_user_id = u2.user_id
+join moneda m on t.currency_id = m.currency_id
+where u1.user_id = 1;
+
+----4° Actualizar correo electrónico de un usuario
+
+update usuario
+set email = 'dalila_nuevo@email.com'
+where user_id = 1;
+
+select * from transaccion; ---para verificar
+
+--5° Eliminar una transacción
+
+delete from transaccion
+where transaction_id = 1;
+
+select * from transaccion; ---para verificar
 
 
 
